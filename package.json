@@ -1,0 +1,20 @@
+{
+  "name": "filament-map-picker",
+  "author": "Humaid Al Mansoori",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.6",
+    "postcss": "^8.1.14",
+    "leaflet": "^1.7.1"
+  }
+}

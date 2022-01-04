@@ -1,0 +1,6 @@
+@import "~leaflet/dist/leaflet.css";
+
+.map-icon {
+    stroke: #dbeafe;
+    fill: #3b82f6;
+}
