@@ -22,7 +22,6 @@
             @endif
         @if($hasJs())
             if(!document.getElementById('map-picker-js')){
-                console.log('create picker js')
                 const script = document.createElement('script');
                 script.id   = 'map-picker-js';
                 script.src = '{{ $jsUrl() }}';
