@@ -49,16 +49,12 @@ class OSMMap extends Field implements MapOptions
      */
     public function getMapConfig(): string
     {
-        return json_encode([
-            ...$this->mapConfig,
-            ...[
+        return json_encode(
+            array_merge($this->mapConfig, [
                 'statePath' => $this->getStatePath(),
-                'controls'  => [
-                    ...$this->controls,
-                    ...$this->extraControls
-                ]
-            ]
-        ]);
+                'controls'  => array_merge($this->controls, $this->extraControls)
+            ])
+        );
     }
 
     /**
@@ -140,7 +136,7 @@ class OSMMap extends Field implements MapOptions
      */
     public function extraControl(array $control): self
     {
-        $this->extraControls = [...$this->extraControls, ...$control];
+        $this->extraControls = array_merge($this->extraControls, $control);
         return $this;
     }
 
@@ -174,20 +170,6 @@ class OSMMap extends Field implements MapOptions
     {
         parent::setUp();
         $this->default(['lat' => 0, 'lng' => 0]);
-        // TODO to be removed
-//        $this->mutateDehydratedStateUsing = function ($state) {
-//            if (!($state instanceof Point))
-//                return new Point($state['lat'], $state['lng']);
-//
-//            return $state;
-//        };
-//
-//        $this->afterStateUpdated = function ($state) {
-//            if ($state instanceof Point) {
-//                /** @var Point $state */
-//                $this->state(['lat' => $state->getLat(), 'lng' => $state->getLng()]);
-//            }
-//        };
     }
 }
 
