@@ -12,6 +12,8 @@ interface MapOptions
 
     public function maxZoom(int $maxZoom): self;
 
+    public function minZoom(int $minZoom): self;
+
     public function showMarker(bool $show = true): self;
 
     public function tilesUrl(string $url): self;

@@ -20,8 +20,6 @@ class OSMMap extends Field implements MapOptions
     private array $mapConfig = [
         'statePath'  => '',
         'draggable'  => false,
-        'zoom'       => 19,
-        'maxZoom'    => 20,
         'showMarker' => false,
         'tilesUrl'   => 'http://tile.openstreetmap.org/{z}/{x}/{y}.png',
     ];
@@ -35,6 +33,9 @@ class OSMMap extends Field implements MapOptions
         'scrollWheelZoom' => 'center',
         'doubleClickZoom' => 'center',
         'touchZoom'       => 'center',
+        'minZoom'         => 1,
+        'maxZoom'         => 20,
+        'zoom'            => 17,
     ];
 
     /**
@@ -77,7 +78,7 @@ class OSMMap extends Field implements MapOptions
      */
     public function zoom(int $zoom): self
     {
-        $this->mapConfig['zoom'] = $zoom;
+        $this->controls['zoom'] = $zoom;
         return $this;
     }
 
@@ -89,7 +90,19 @@ class OSMMap extends Field implements MapOptions
      */
     public function maxZoom(int $maxZoom): self
     {
-        $this->mapConfig['maxZoom'] = $maxZoom;
+        $this->controls['maxZoom'] = $maxZoom;
+        return $this;
+    }
+
+    /**
+     * Set min zoom
+     * @param int $maxZoom
+     * @return $this
+     * @note Default value 1
+     */
+    public function minZoom(int $minZoom): self
+    {
+        $this->controls['minZoom'] = $minZoom;
         return $this;
     }
 

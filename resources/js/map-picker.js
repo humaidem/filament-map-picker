@@ -7,10 +7,12 @@ window.mapPicker = ($wire, config) => {
         marker: null,
         createMap: function (el) {
 
+            const that = this;
+
             this.map = L.map(el, config.controls);
             this.map.on('load', () => {
                 setTimeout(() => this.map.invalidateSize(true), 0);
-                if (config?.showMarker === true) {
+                if (config.showMarker === true) {
                     this.marker.setLatLng(this.map.getCenter())
                 }
             })
@@ -49,12 +51,19 @@ window.mapPicker = ($wire, config) => {
                 }
             })
 
-
+            this.map.on('locationfound', function () {
+                that.map.setZoom(config.controls.zoom)
+            });
             let location = this.getCoordinates();
             if (!location.lat && !location.lng) {
-                this.map.locate({setView: true, maxZoom: config.maxZoom});
+                this.map.locate({
+                    setView: true,
+                    maxZoom: config.controls.maxZoom,
+                    enableHighAccuracy: true,
+                    watch: false
+                });
             } else {
-                this.map.setView(new L.LatLng(location.lat, location.lng), config.zoom)
+                this.map.setView(new L.LatLng(location.lat, location.lng))
             }
         },
         removeMap: function (el) {
