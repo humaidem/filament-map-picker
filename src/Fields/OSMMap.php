@@ -18,10 +18,16 @@ class OSMMap extends Field implements MapOptions
      * @var array
      */
     private array $mapConfig = [
-        'statePath'  => '',
-        'draggable'  => false,
-        'showMarker' => false,
-        'tilesUrl'   => 'http://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        'statePath'    => '',
+        'draggable'    => false,
+        'showMarker'   => false,
+        'tilesUrl'     => 'http://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        'attribution'  => null,
+        'zoomOffset'   => -1,
+        'tileSize'     => 512,
+        'detectRetina' => false,
+        'minZoom'      => 0,
+        'maxZoom'      => 18,
     ];
 
     /**
@@ -150,6 +156,17 @@ class OSMMap extends Field implements MapOptions
     public function extraControl(array $control): self
     {
         $this->extraControls = array_merge($this->extraControls, $control);
+        return $this;
+    }
+
+    /**
+     * Append extra controls to be passed to leaflet tileLayer object
+     * @param array $control
+     * @return $this
+     */
+    public function extraTileControl(array $control): self
+    {
+        $this->mapConfig = array_merge($this->mapConfig, $control);
         return $this;
     }
 

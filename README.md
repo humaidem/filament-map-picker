@@ -117,6 +117,7 @@ Option | Type   | Default                                       | Description
 `tilesUrl(string)` | string | http://tile.openstreetmap.org/{z}/{x}/{y}.png | Tiles service/provider url.
 `showZoomControl(bool)` | bool   | false                                         | Show or hide Zoom control of the map.
 `extraControl(array)` | array  | []                                         | Add extra map controls (please refer to leaflet)
+`extraTileControl(array)` | array  | []                                         | Add extra tileLayer controls (please refer to leaflet tileLayer())
 
 # License
 
