@@ -22,10 +22,12 @@ window.mapPicker = ($wire, config) => {
             }
 
             this.tile = L.tileLayer(config.tilesUrl, {
-                attribution: null,
+                attribution: config.attribution,
+                minZoom: config.minZoom,
                 maxZoom: config.maxZoom,
-                tileSize: 512,
-                zoomOffset: -1
+                tileSize: config.tileSize,
+                zoomOffset: config.zoomOffset,
+                detectRetina: config.detectRetina,
             }).addTo(this.map);
 
 

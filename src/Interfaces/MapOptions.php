@@ -22,6 +22,8 @@ interface MapOptions
 
     public function extraControl(array $control): self;
 
+    public function extraTileControl(array $control): self;
+
     public function hasJs(): bool;
 
     public function jsUrl(): string;
