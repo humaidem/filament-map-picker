@@ -144,7 +144,7 @@ class OSMMap extends Field implements MapOptions
      */
     public function showZoomControl(bool $show = true): self
     {
-        $this->mapConfig['controls']['zoomControl'] = $show;
+        $this->controls['zoomControl'] = $show;
         return $this;
     }
 
