@@ -8,8 +8,10 @@
     "issues": "https://github.com/humaidem/filament-map-picker/issues",
     "source": "https://github.com/humaidem/filament-map-picker"
   },
-  "require-dev": {
-    "filament/filament": "^2.0"
+  "require": {
+    "php": "^8.1",
+    "filament/filament": "^3.0",
+    "spatie/laravel-package-tools": "^1.16"
   },
   "autoload": {
     "psr-4": {

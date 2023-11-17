@@ -2,17 +2,15 @@
 
 namespace Humaidem\FilamentMapPicker;
 
-use Filament\PluginServiceProvider;
 use Humaidem\FilamentMapPicker\Controllers\MapPickerAssets;
 use Illuminate\Support\Facades\Route;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 
-class FilamentMapPickerServiceProvider extends PluginServiceProvider
+class FilamentMapPickerServiceProvider extends PackageServiceProvider
 {
-
     public static string $name = 'filament-map-picker';
-
 
     public function boot()
     {
@@ -50,5 +48,4 @@ class FilamentMapPickerServiceProvider extends PluginServiceProvider
             $package->hasViews();
         }
     }
-
 }
